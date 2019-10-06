@@ -1,0 +1,138 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<title>update Emp</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<link rel="stylesheet" type="text/css"
+			href="/static/css1/style.css" />
+	</head>
+    <script type="text/javascript">
+        //alert('这是测试');
+        var is_man = document.getElementById("is_man");
+        var is_woman = document.getElementById("is_woman");
+
+        var gender ='男';
+        gender = "{{ emp.gender }}";
+        console.log(gender);
+        if (gender === "男" ){
+            is_man.checked=true;
+{#            $("#is_man").attr("checked","checked");#}
+{#            $("#is_woman").removeAttr("checked");#}
+{#            box[1].checked = false;#}
+        }else {
+            is_woman.checked=true
+{#            $("#is_woman").attr("checked","checked");#}
+{#            $("#is_man").removeAttr("checked");#}
+{#            box[0].checked = false;#}
+        }
+{#        function fun() {#}
+{#            var box = document.getElementsByName("gender");#}
+{#            var gender = {{ emp.gender }};#}
+{#            alert(gender);#}
+{#            alert('ceshi')#}
+{#            if (gender === "男" ){#}
+{#                box[0].checked = true;#}
+{#                box[1].checked = false;#}
+{#            }else {#}
+{#                box[1].checked = true;#}
+{#                box[0].checked = false;#}
+{#            }#}
+{#        }#}
+{#        window.onload = fun;#}
+    </script>
+
+	<body>
+		<div id="wrap">
+			<div id="top_content">
+					<div id="header">
+						<div id="rightheader">
+							<p>
+								2009/11/20
+								<br />
+							</p>
+						</div>
+						<div id="topheader">
+							<h1 id="title">
+								<a href="/employee/emplist/">Main</a>
+							</h1>
+						</div>
+						<div id="navigation">
+						</div>
+					</div>
+				<div id="content">
+					<p id="whereami">
+					</p>
+					<h1>
+						update Emp info:
+					</h1>
+					<form action="/employee/update/?e_id={{ e_id }}" method="post">
+                        {% csrf_token %}
+						<table cellpadding="0" cellspacing="0" border="0"
+							class="form_table">
+							<tr>
+								<td valign="middle" align="right">
+									id:
+								</td>
+								<td valign="middle" align="left">
+									{{ e_id }}
+								</td>
+							</tr>
+							<tr>
+								<td valign="middle" align="right">
+									name:
+								</td>
+								<td valign="middle" align="left">
+									<input type="text" class="inputgri" name="name" value={{ emp.name }} />
+								</td>
+							</tr>
+							<tr>
+								<td valign="middle" align="right">
+									salary:
+								</td>
+								<td valign="middle" align="left">
+									<input type="text" class="inputgri" name="salary" value={{ emp.salary }} />
+								</td>
+							</tr>
+							<tr>
+								<td valign="middle" align="right">
+									age:
+								</td>
+								<td valign="middle" align="left">
+									<input type="text" class="inputgri" name="age" value={{ emp.age }} />
+								</td>
+							</tr>
+                        
+                        
+
+							<tr>
+								<td valign="middle" align="right">
+									gender:
+								</td>
+								<td valign="middle" align="left">
+									<input type="radio" name="gender" value="m" id="is_man" />男
+									<input type="radio" name="gender" value="w" id="is_woman" />女
+								</td>
+							</tr>
+							<tr>
+								<td valign="middle" align="right">
+									birth:
+								</td>
+								<td valign="middle" align="left">
+									<input type="text" class="inputgri" name="birth" value={{ emp.birth }} />
+								</td>
+							</tr>
+						</table>
+						<p>
+							<input type="submit" class="button" value="Confirm" />
+						</p>
+					</form>
+				</div>
+			</div>
+			<div id="footer">
+				<div id="footer_bg">
+					ABC@126.com
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

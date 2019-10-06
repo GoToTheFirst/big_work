@@ -1,0 +1,5 @@
+1.分为两个APP：amdin125,employee
+2.admin125:login和register
+  employee:CURD
+3.静态资源,记住我
+4.日期，bool
